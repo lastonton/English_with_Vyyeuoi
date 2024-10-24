@@ -1,0 +1,566 @@
+/* Reset some basic elements for consistency across browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling with a subtle pink background pattern */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0 25%, transparent 25%) -50px 0,
+              linear-gradient(225deg, #ffe6f0 25%, transparent 25%) -50px 0,
+              linear-gradient(315deg, #ffe6f0 25%, transparent 25%),
+              linear-gradient(45deg, #ffe6f0 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: #f8d7da;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #ffb6c1; /* Light pink */
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative; /* Necessary for dropdown positioning */
+  margin-right: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #ff69b4; /* Hot pink on hover */
+}
+
+/* Dropdown styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffb6c1; /* Match navbar color */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%; /* Position below the parent */
+  left: 0;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #ff85c0; /* Lighter pink on hover */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: Add a caret to indicate dropdown */
+.dropbtn::after {
+  content: ' ▼';
+  font-size: 0.6em;
+}
+
+/* Manage Question Styling */
+.manage-questions-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: #ffe6f0;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 50px;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #ffb6c1;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.remove-btn:hover {
+  color: #ff4081;
+}
+.tag {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* question Table */
+.questions-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.questions-table th,
+.questions-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.questions-table th {
+  background-color: #ffb6c1; /* Light pink */
+  color: white;
+  text-align: center;
+}
+
+.questions-table tr:nth-child(even) {
+  background-color: #ffe6f0; /* Light pinkish background */
+}
+
+.questions-table tr:hover {
+  background-color: #ff85c0; /* Hover color */
+  color: white;
+}
+
+.questions-table td {
+  text-align: left;
+}
+
+/* Nút xóa câu hỏi */
+.remove-question-btn {
+  background-color: #dc3545; /* Màu đỏ cho nút delete */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-question-btn:hover {
+  background-color: #c82333;
+}
+
+.add-question-btn {
+  background-color: rgb(0, 204, 255); /* Màu xanh cho nút add */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-question-btn:hover {
+  background-color: #008197;
+}
+
+/* Form Thêm Câu Hỏi Mới */
+.add-question-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-question-form input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.add-question-form button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745; /* Màu xanh lá cho nút Add */
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-question-form button:hover {
+  background-color: #218838;
+}
+
+/* Optional: Container to center content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* custome */
+.body-customer {
+  width: 100%;
+  height: fit-content;
+  margin: 0px auto;
+  overflow: visible;
+}
+/* Button styling */
+.random-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff69b4; /* Hot pink */
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 20px;
+}
+
+.random-button:hover {
+  background-color: #ff85c0;
+  transform: scale(1.05);
+}
+
+.random-button:active {
+  background-color: #ff4081;
+  transform: scale(1);
+}
+
+/* Container to center content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Display area for the random question */
+.random-question {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #333;
+  padding: 15px;
+  background-color: #ffe6f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add question Form */
+.add-question-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-question-form input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 60%;
+}
+
+.add-question-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #28a745; /* Màu xanh lá cho nút Add */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-question-form button:hover {
+  background-color: #218838;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.vocabulary-page {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 1000;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+#vocabulary-list {
+  margin-top: 20px;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+}
+
+.vocab-form {
+  margin-top: 30px;
+}
+
+.vocab-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+.vocab-form input[type="text"],
+.vocab-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.react-date-picker {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.add-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete-btn {
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+p {
+  color: #888;
+}
+.react-date-picker-wrapper {
+  z-index: 1000; /* Giá trị cao hơn để đảm bảo nó luôn nằm trên cùng */
+  position: relative;
+}
+
+.react-calendar {
+  z-index: 1000; /* Đảm bảo lịch luôn hiện lên trên các thành phần khác */
+  position: absolute;
+}
+
+.word-details {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.word-details h3 {
+  margin-bottom: 10px;
+}
+
+.word-details p {
+  margin: 5px 0;
+}
+
+.flashcard-page {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.flashcard {
+  width: 300px;
+  height: 200px;
+  margin: 20px auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard .front, .flashcard .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.flashcard .front {
+  background-color: #ff69b4;
+  color: #333;
+}
+
+.flashcard .back {
+  background-color: #ff85c0;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .back {
+  transform: rotateY(0deg);
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.button-voca {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.homepage-body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f3ff;
+}
+
+.homepage {
+  text-align: center;
+  padding: 50px;
+  background-color: #fce4ec;
+  color: #333;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #ff4081;
+}
+
+.header p {
+  font-size: 1.5rem;
+  color: #8e24aa;
+}
+
+.image-section {
+  margin: 20px 0;
+}
+
+.cute-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid #ffb74d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-section {
+  margin-top: 30px;
+}
+
+.cute-button {
+  background-color: #ffb74d;
+  color: white;
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cute-button:hover {
+  background-color: #ff6f00;
+}
+
+.cute-button:active {
+  background-color: #ff8a50;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* font comic san nâu đậm */
